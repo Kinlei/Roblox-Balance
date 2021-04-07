@@ -24,15 +24,10 @@ function GetShortProperties(i)
     for PropN, PropV in next, Properties do
     	if (typeof(PropN) == "number") then
     		PropN = PropV;
-    		local CheckCase = PropN[1];
-    		if (CheckCase == CheckCase.toUpperCase) then
-				PropV = pcall(function() 
-					return i[PropN] 
-				end);
-			else
-				PropV = nil;
-			end;
-		end;
+    	end;
+	    PropV = pcall(function() 
+			return i[PropN] 
+		end);
 		if (PropV) then
 			local CheckIndex = ShortUpper(PropN);
 			if (not PropTable[CheckIndex]) then
